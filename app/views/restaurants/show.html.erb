@@ -5,23 +5,23 @@
       <% if @restaurant.category == "chinese" %>
         <%= 🎐%>
 
-        <% elsif @pet.species == "italian" %>
+        <% elsif @pet.species == "Italian" %>
          <%= 🍕%>
 
-        <% elsif @pet.species == "japanese" %>
+        <% elsif @pet.species == "Japanese" %>
          <%= 🎎%>
 
-         <% elsif @pet.species == "french" %>
+         <% elsif @pet.species == "French" %>
           <%= 🥐%>
 
-        <% elsif @pet.species == "belgian" %>
+        <% elsif @pet.species == "Belgian" %>
           <%= 🍫%>
       <% end %>
   </div>
 </div>
-  <%= link_to "Back Home 🏡", root_path, class: "show-ref" %>
-  <%= link_to "Edit the Restaurant", edit_restaurant_path(@pet), class: "show-ref" %>
-  <%= link_to "Delete #{@restaurant.name}", restaurant_path(@pet), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this lovely #{@restaurant.category}?"}, class: "show-ref"%>
+  <%= link_to "Back Home 🏡", root_path, class: "btn-go-home" %>
+  <%= link_to "Edit the Restaurant", edit_restaurant_path(@restaurant), class: "btn-go-home" %>
+  <%= link_to "Delete #{@restaurant.name}", restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this #{@restaurant.name}?"}, class: "btn-go-home"%>
   <div class="row mt-4">
     <h3>Address: <span style="color:white"><%= @restaurant.address %> <span></h3>
     <h3>Category: <span style="color:white"><%= @restaurant.category.capitalize %><span></h3>

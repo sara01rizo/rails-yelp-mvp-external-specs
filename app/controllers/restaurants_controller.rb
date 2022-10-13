@@ -1,11 +1,11 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: %i[show edit update destroy]
+
   def index
     @restaurants = Restaurant.all
   end
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
+  def show; end
 
   def new
     @restaurant = Restaurant.new
@@ -17,9 +17,7 @@ class RestaurantsController < ApplicationController
     redirect_to restaurant_path(@restaurant)
   end
 
-  def edit
-    @restaurant = Restaurant.find(params[:id])
-  end
+  def edit; end
 
   def update
     @restaurant = Pet.find(params[:id])
@@ -28,14 +26,21 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to root_path, status: :see_other
   end
 
+  def top
+    @restaurants = Restaurant.where(rating: 5)
+  end
+
   private
 
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def restaurant_params
-    params.require(:pet).permit(:name, :address, :phone_number, :category)
+    params.require(:restaurant).permit(:name, :address, :rating)
   end
 end
