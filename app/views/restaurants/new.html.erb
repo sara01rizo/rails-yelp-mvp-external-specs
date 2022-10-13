@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="new-wrapper">
+      <h1 style="text-align:center">Create a new <br>Restaurant</h1>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-12">
+  <div class="d-flex justify-content-center">
+  <div class="col-6">
+    <%= simple_form_for(@restaurant) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :category, collection: Restaurant::CATEGORY %>
+      <%= f.input :phone_number %>
+      <%= f.submit class: "btn btn-success" %>
+    <% end %>
+    </div>
+    </div>
+  </div>
+  </div>
+
+</div>
