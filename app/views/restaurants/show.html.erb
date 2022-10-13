@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="">
+  <div class="">
+    <h1 style="text-align:center">Restaurants<br><%= @restaurant.name %></h1>
+      <% if @restaurant.category == "chinese" %>
+        <%= 🎐%>
+
+        <% elsif @pet.species == "italian" %>
+         <%= 🍕%>
+
+        <% elsif @pet.species == "japanese" %>
+         <%= 🎎%>
+
+         <% elsif @pet.species == "french" %>
+          <%= 🥐%>
+
+        <% elsif @pet.species == "belgian" %>
+          <%= 🍫%>
+      <% end %>
+  </div>
+</div>
+  <%= link_to "Back Home 🏡", root_path, class: "show-ref" %>
+  <%= link_to "Edit the Restaurant", edit_restaurant_path(@pet), class: "show-ref" %>
+  <%= link_to "Delete #{@restaurant.name}", restaurant_path(@pet), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this lovely #{@restaurant.category}?"}, class: "show-ref"%>
+  <div class="row mt-4">
+    <h3>Address: <span style="color:white"><%= @restaurant.address %> <span></h3>
+    <h3>Category: <span style="color:white"><%= @restaurant.category.capitalize %><span></h3>
+    <h3>Raiting: <span style="color:white"><%= @review.raiting %> <span></h3>
+  </div>
+</div>
